@@ -23,8 +23,8 @@ All you need to do is follow the same steps you follow when setting up the envir
 
 ## Documentation
 #### Generate Tool: [APIDOC](https://apidocjs.com/)
-Adjust and adapt the configuration for your project in `apidoc.json`
-Generate changes with command: `apidoc -i documentation -o public/documentation`
+Adjust and adapt the configuration for your project in `apidoc.json`.__
+Generate changes with command: `apidoc -i documentation -o public/documentation`.__
 After the documentation is generated you can see api documantions under this example links:
 - Localhost : `your-localhost.test/documentation/index.html`
 - Liveserver : `your-localhost.test/documentation`
