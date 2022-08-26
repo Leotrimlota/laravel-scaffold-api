@@ -7,4 +7,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/register', [AuthController::class, 'register']);
     Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+
+    Route::post('forgot-password', [AuthController::class, 'forgotPassword'])
+        ->name('password.email');
 });

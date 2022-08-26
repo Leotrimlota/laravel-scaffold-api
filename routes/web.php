@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+foreach (File::files(__DIR__ . '/web') as $partial) {
+    require_once($partial);
+}
+
+

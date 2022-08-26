@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-use App\Http\Request\Api\RegisterUserRequest;
+use App\Http\Requests\Api\RegisterUserRequest;
+use App\Http\Requests\Api\ForgotPasswordRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class AuthController
 {
@@ -55,5 +57,18 @@ class AuthController
         return response()->json([
             'message' => "User has successfully logged out!",
         ]);
+    }
+
+    public function forgotPassword(ForgotPasswordRequest $request)
+    {
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+        return $status == Password::RESET_LINK_SENT
+            ? response()->json([
+                'message' => __($status),
+            ]) :
+            response()->json(['message' => __($status)], 400);
+
     }
 }
